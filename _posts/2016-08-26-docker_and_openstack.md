@@ -2,6 +2,7 @@
 title: Docker and Openstack
 ---
 ## Backgroup
+> There is so many ways and choices to let docker work with openstack. Here is a quick summary how they can work together.
 
 ## How to work together?
 
