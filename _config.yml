@@ -11,14 +11,12 @@ name:               "Liping Mao"
 permalink:          /:year/:month/:day/:title.html
 
 # Markdown
-markdown:           rdiscount
+#markdown:           rdiscount
 
 # Navigation
 nav:
   - name:           "About"
     href:           "//gfjaru.github.io/Kiko/about"
-  - name:           "Download"
-    href:           "//github.com/gfjaru/Kiko/releases"
 
 # Sass
 sass:
