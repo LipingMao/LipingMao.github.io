@@ -35,13 +35,37 @@ Create a config file in /etc/limao/app.conf:
     [limao]
     test = 'Real world'
 
-
 Test code:
 
     # python app
     CONF.limao.test Real world
 
+Generate config file:
+
+define namespace in setup.cfg:
+
+    [entry_points]
+    oslo.config.opts =
+        limao = app:list_opts
+
+add list_opts in app:
+
+    def list_opts():
+        return [('limao', opts)]
+
+define oslo-config-generator config file:
+
+    # cat > config-generator/config.conf <<EOF
+    [DEFAULT]
+    output_file = etc/limao/app.conf
+    namespace = limao
+    EOF
+
+Use command to generate config file:
+
+    # oslo-config-generator --config-file config-generator/config.conf
+
 
 ## Refer Doc
 1. [oslo.config developer doc](http://docs.openstack.org/developer/oslo.config/cfg.html)
-
+2. [oslo-config-generator](http://docs.openstack.org/developer/oslo.config/generator.html)
