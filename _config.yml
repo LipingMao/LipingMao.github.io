@@ -16,7 +16,7 @@ permalink:          /:year/:month/:day/:title.html
 # Navigation
 nav:
   - name:           "About"
-    href:           "//gfjaru.github.io/Kiko/about"
+    href:           "//LipingMao.github.io/about"
 
 # Sass
 sass:
