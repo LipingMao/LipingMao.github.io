@@ -1,12 +1,12 @@
 # # # # # # # #
-#   K i k o   #
+# Liping Mao  #
 # # # # # # # #
 
 # Basic
-name:               "Kiko"
+name:               "Liping Mao"
 
 # URL
-baseurl:            "/Kiko"
+#baseurl:            ""
 #baseurl:            "" #For Root Domain
 permalink:          /:year/:month/:day/:title.html
 
