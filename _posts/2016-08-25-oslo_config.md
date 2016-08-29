@@ -2,7 +2,7 @@
 title: Openstack Lib - oslo.config
 ---
 ## Backgroup
-> Reduce duplicated code in different openstack project.
+> Reduce duplicated code in different openstack project. This lib is common action for config file.
 
 ## Basic Usage
 > Here is a sample which help you have a basic and quick use oslo.config
