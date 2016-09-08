@@ -6,10 +6,214 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Neutron Memo - Port Security</title>
+        <description>&lt;h2 id=&quot;backgroup&quot;&gt;Backgroup&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Neutron has anti-ip-spoofing feature by default. User can use allowed-address-pairs to disable this. Neutron also support to disable it completely, here it is : Port-Security.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;basic-usage&quot;&gt;Basic Usage&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Here is a sample which help you setup/use port-security.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;how-to-enable-port-security-feature&quot;&gt;How to enable port-security feature&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Here is how to enable port-security in ml2 extension drivers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Add the below line in /etc/neutron/plugins/ml2/ml2_conf.ini
+# and restart neutron-server.
+extension_drivers = port_security
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;how-to-use-port-security&quot;&gt;How to use port-security&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;port-security can be disable in Network or Port.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Create network with port-security false:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# neutron net-create  --port_security_enabled=false private_test
+# neutron net-show e6c81b80-3dc9-4515-9123-0d17cefd22dc
++-------------------------+--------------------------------------+
+| Field                   | Value                                |
++-------------------------+--------------------------------------+
+| admin_state_up          | True                                 |
+| availability_zone_hints |                                      |
+| availability_zones      | nova                                 |
+| created_at              | 2016-09-07T07:28:50                  |
+| description             |                                      |
+| id                      | e6c81b80-3dc9-4515-9123-0d17cefd22dc |
+| ipv4_address_scope      |                                      |
+| ipv6_address_scope      |                                      |
+| mtu                     | 1450                                 |
+| name                    | private_test                         |
+| port_security_enabled   | False                                |
+| qos_policy_id           |                                      |
+| router:external         | False                                |
+| shared                  | False                                |
+| status                  | ACTIVE                               |
+| subnets                 | 0e12f67a-962a-4737-85d3-e6b17b63ccc8 |
+| tags                    |                                      |
+| tenant_id               | 5e336f24f89c43f5ab4d1dd07f54b86d     |
+| updated_at              | 2016-09-07T07:28:50                  |
++-------------------------+--------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You must boot vm without security-group, then IN and OUT of ipstables rules of the VM will be similiar like following, It will be ACCEPT for all traffic, for sure, you will not go into spoofing iptables chain here:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Chain neutron-openvswi-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 2900  323K neutron-openvswi-scope  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   13  2006 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-out tapa45e21f7-86 --physdev-is-bridged /* Accept all packets when port security is disabled. */
+   11  1212 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            PHYSDEV match --physdev-in tapa45e21f7-86 --physdev-is-bridged /* Accept all packets when port security is disabled. */
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can also disable port-security in port level, when you disable it, you also need remove security-groups on that port:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# neutron port-update --port_security_enabled=false --no-security-groups a45e21f7-8654-495f-b3b9-ea42d73778b4
+# neutron port-show a45e21f7-8654-495f-b3b9-ea42d73778b4
++-----------------------+----------------------------------------------------------------------------------------+
+| Field                 | Value                                                                                  |
++-----------------------+----------------------------------------------------------------------------------------+
+| admin_state_up        | True                                                                                   |
+| allowed_address_pairs |                                                                                        |
+| binding:vnic_type     | normal                                                                                 |
+| created_at            | 2016-09-07T05:49:39                                                                    |
+| description           |                                                                                        |
+| device_id             | 7a03c4fd-653d-4fc6-a32e-e62f40a38bcd                                                   |
+| device_owner          | compute:nova                                                                           |
+| dns_name              |                                                                                        |
+| extra_dhcp_opts       |                                                                                        |
+| fixed_ips             | {&quot;subnet_id&quot;: &quot;b8da86ab-6736-4c2c-8989-83d2c7a502f6&quot;, &quot;ip_address&quot;: &quot;200.200.200.109&quot;} |
+| id                    | a45e21f7-8654-495f-b3b9-ea42d73778b4                                                   |
+| mac_address           | fa:16:3e:a9:ee:4b                                                                      |
+| name                  |                                                                                        |
+| network_id            | f0c38656-ac54-483c-b19b-1d2ffde481ed                                                   |
+| port_security_enabled | False                                                                                  |
+| qos_policy_id         |                                                                                        |
+| security_groups       |                                                                                        |
+| status                | ACTIVE                                                                                 |
+| tenant_id             | 5e336f24f89c43f5ab4d1dd07f54b86d                                                       |
+| updated_at            | 2016-09-07T07:02:15                                                                    |
++-----------------------+----------------------------------------------------------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;refer&quot;&gt;Refer&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://specs.openstack.org/openstack/neutron-specs/specs/kilo/ml2-ovs-portsecurity.html&quot;&gt;Neutron Kilo Spec for port-security&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 08 Sep 2016 00:00:00 +0800</pubDate>
+				<link>/2016/09/08/neutron_port_security.html</link>
+				<guid isPermaLink="true">/2016/09/08/neutron_port_security.html</guid>
+			</item>
+		
+			<item>
+				<title>Openstack Lib - oslo.log</title>
+        <description>&lt;h2 id=&quot;backgroup&quot;&gt;Backgroup&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Reduce duplicated code in different openstack project. This lib is used for common action for log.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;basic-usage&quot;&gt;Basic Usage&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Here is a sample which help you have a basic and quick use oslo.log&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Basic Usage Sample:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Import oslo_config and oslo_log
+from oslo_config import cfg
+from oslo_log import log as logging
+import sys
+
+def run():
+    CONF = cfg.CONF
+    DOMAIN = &quot;limao&quot;
+    # Register oslo log options
+    logging.register_options(CONF)
+    # init CONF
+    CONF(sys.argv[1:], project=DOMAIN)
+    # Setup and getLogger
+    logging.setup(CONF, DOMAIN)
+    LOG = logging.getLogger(__name__)
+    LOG.info(&quot;Hello OSLO.log&quot;)
+
+if __name__ == '__main__':
+    run()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Run the code, they you can see log in /var/log/limao/test.log&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# python limao_logging.py  --log-file /var/log/limao/test.log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;refer&quot;&gt;Refer&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://docs.openstack.org/developer/oslo.log/examples.html&quot;&gt;oslo example&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Mon, 29 Aug 2016 00:00:00 +0800</pubDate>
+				<link>/2016/08/29/oslo_log.html</link>
+				<guid isPermaLink="true">/2016/08/29/oslo_log.html</guid>
+			</item>
+		
+			<item>
+				<title>Docker and Openstack</title>
+        <description>&lt;h2 id=&quot;backgroup&quot;&gt;Backgroup&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;There is so many ways and choices to let docker work with openstack. Here is a quick summary how they can work together.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-to-work-together&quot;&gt;How to work together?&lt;/h2&gt;
+
+&lt;h3 id=&quot;nova-docker-driver&quot;&gt;Nova-Docker Driver&lt;/h3&gt;
+
+&lt;p&gt;Use Docker as “Hyperviser” just like libvirt(kvm), Xen.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/openstack/nova-docker/tree/master&quot;&gt;Nova-Docker Driver Code Base&lt;/a&gt;
+&lt;a href=&quot;https://sreeninet.wordpress.com/2015/06/14/openstack-and-docker-part-1/&quot;&gt;Nova Docker Driver Blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;heat&quot;&gt;Heat&lt;/h3&gt;
+
+&lt;p&gt;Use Heat to orchestrate docker container on Openstack.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sreeninet.wordpress.com/2015/06/14/openstack-and-docker-part-2/&quot;&gt;Heat and Docker Blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;magnum&quot;&gt;Magnum&lt;/h3&gt;
+&lt;p&gt;K8S, Mesos, Swarm cluster as a service on Openstack.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wiki.openstack.org/wiki/Magnum&quot;&gt;Magnum Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;kolla--kolla-k8s&quot;&gt;Kolla / Kolla-k8s&lt;/h3&gt;
+&lt;p&gt;Use Docker to containize openstack service, then use anisble / k8s to orchestrate the deploy of Openstack.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://docs.openstack.org/developer/kolla-kubernetes/quickstart.html&quot;&gt;Kolla &amp;amp; Kolla-k8s&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;kuryr--kuryr-libnetwork--kuryr-k8s--fuxi&quot;&gt;Kuryr / Kuryr-libnetwork / Kuryr-k8s / FuXi&lt;/h3&gt;
+
+&lt;p&gt;Docker libnetwork remote Driver / Volume Driver to use neutron / Cinder as backend for docker.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/openstack?utf8=%E2%9C%93&amp;amp;query=kuryr&quot;&gt;Kuryr Repo&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Fri, 26 Aug 2016 00:00:00 +0800</pubDate>
+				<link>/2016/08/26/docker_and_openstack.html</link>
+				<guid isPermaLink="true">/2016/08/26/docker_and_openstack.html</guid>
+			</item>
+		
+			<item>
 				<title>Openstack Lib - oslo.config</title>
         <description>&lt;h2 id=&quot;backgroup&quot;&gt;Backgroup&lt;/h2&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;Reduce duplicated code in different openstack project.&lt;/p&gt;
+  &lt;p&gt;Reduce duplicated code in different openstack project. This lib is common action for config file.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;basic-usage&quot;&gt;Basic Usage&lt;/h2&gt;
@@ -55,11 +259,44 @@ CONF.limao.test Real world
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;Generate config file:&lt;/p&gt;
+
+&lt;p&gt;define namespace in setup.cfg:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[entry_points]
+oslo.config.opts =
+    limao = app:list_opts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;add list_opts in app:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def list_opts():
+    return [('limao', opts)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;define oslo-config-generator config file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# cat &amp;gt; config-generator/config.conf &amp;lt;&amp;lt;EOF
+[DEFAULT]
+output_file = etc/limao/app.conf
+namespace = limao
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Use command to generate config file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# oslo-config-generator --config-file config-generator/config.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;h2 id=&quot;refer-doc&quot;&gt;Refer Doc&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;http://docs.openstack.org/developer/oslo.config/cfg.html&quot;&gt;oslo.config developer doc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://docs.openstack.org/developer/oslo.config/generator.html&quot;&gt;oslo-config-generator&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
 </description>
 				<pubDate>Thu, 25 Aug 2016 00:00:00 +0800</pubDate>
 				<link>/2016/08/25/oslo_config.html</link>

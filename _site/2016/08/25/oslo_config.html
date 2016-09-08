@@ -21,7 +21,7 @@
   </div>
   <h2 id="backgroup">Backgroup</h2>
 <blockquote>
-  <p>Reduce duplicated code in different openstack project.</p>
+  <p>Reduce duplicated code in different openstack project. This lib is common action for config file.</p>
 </blockquote>
 
 <h2 id="basic-usage">Basic Usage</h2>
@@ -67,11 +67,44 @@ CONF.limao.test Real world
 </code></pre>
 </div>
 
+<p>Generate config file:</p>
+
+<p>define namespace in setup.cfg:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[entry_points]
+oslo.config.opts =
+    limao = app:list_opts
+</code></pre>
+</div>
+
+<p>add list_opts in app:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>def list_opts():
+    return [('limao', opts)]
+</code></pre>
+</div>
+
+<p>define oslo-config-generator config file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># cat &gt; config-generator/config.conf &lt;&lt;EOF
+[DEFAULT]
+output_file = etc/limao/app.conf
+namespace = limao
+EOF
+</code></pre>
+</div>
+
+<p>Use command to generate config file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># oslo-config-generator --config-file config-generator/config.conf
+</code></pre>
+</div>
+
 <h2 id="refer-doc">Refer Doc</h2>
 <ol>
   <li><a href="http://docs.openstack.org/developer/oslo.config/cfg.html">oslo.config developer doc</a></li>
+  <li><a href="http://docs.openstack.org/developer/oslo.config/generator.html">oslo-config-generator</a></li>
 </ol>
-
 
 </div>
 
