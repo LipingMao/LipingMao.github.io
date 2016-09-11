@@ -3,7 +3,7 @@ title: Neutron Memo - Port Security
 ---
 ## Backgroup
 
-> Neutron has anti-ip-spoofing feature by default. User can use allowed-address-pairs to disable this. Neutron also support to disable it completely, here it is : Port-Security.
+> Neutron has security group / anti-ip-spoofing / anti-arp-spoofing feature by default for ensure the security. Neutron support to disable it completely, here it is : Port-Security in port or network.
 
 
 ## Basic Usage
