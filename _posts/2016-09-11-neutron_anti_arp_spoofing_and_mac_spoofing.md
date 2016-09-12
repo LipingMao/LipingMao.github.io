@@ -1,5 +1,5 @@
 ---
-title: Neutron Memo - Anti arp-spoofing and Anti mac-spoofing in openvswitch
+title: Neutron Memo(2) -- arp-spoofing / mac-spoofing
 ---
 ## Backgroup
 
