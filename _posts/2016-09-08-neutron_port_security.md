@@ -56,12 +56,11 @@ Create network with port-security false:
 +-------------------------+--------------------------------------+
 ```
 
-You must boot vm without security-group, then IN and OUT of ipstables rules of the VM will be similiar like following, It will be ACCEPT for all traffic, for sure, you will not go into spoofing iptables chain here:
+You must boot vm without security-group, then IN and OUT of ipstables rules of the VM will be similiar like following, It will be ACCEPT for all traffic, for sure, you will not go into spoofing iptables chain here.
+If the network is port-security disabled, there will not be any rules in iptables.
+If the port is updated to port-security disabled, it will has iptables rules as following.
 
 ```
-if the network is port-security disabled, there will not be any rules in iptables.
-if the port is updated to port-security disabled, it will has iptables rules as following.
-
 Chain neutron-openvswi-FORWARD (1 references)
  pkts bytes target     prot opt in     out     source               destination         
  2900  323K neutron-openvswi-scope  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
