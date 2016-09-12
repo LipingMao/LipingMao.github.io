@@ -89,3 +89,36 @@ Do normal switch only if the MAC address is allocated in neutron.
 ```
  cookie=0xa6623d55bf2e8cea, duration=151319.903s, table=25, n_packets=9, n_bytes=1248, idle_age=23109, hard_age=65534, priority=2,in_port=28,dl_src=fa:16:3e:fd:85:f7 actions=NORMAL
 ```
+
+## Allowed address pairs feature impact
+
+if you add allowed address pairs with MAC, the mac will be allowed here too. Here is a sample.
+
+```
+# Add allowed address pair
+neutron port-update --allowed-address-pair ip_address=200.200.200.110,mac_address=fa:16:3e:fd:85:f8 0ff8b5b0-14b0-4116-a195-3e023e921496
+Updated port: 0ff8b5b0-14b0-4116-a195-3e023e921496
+```
+
+You can find iptables rules updated in iptables anti ip spoofing chain.
+
+```
+Chain neutron-openvswi-s0ff8b5b0-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       200.200.200.110      0.0.0.0/0            MAC FA:16:3E:FD:85:F8 /* Allow traffic from defined IP/MAC pairs. */
+    3   954 RETURN     all  --  *      *       200.200.200.110      0.0.0.0/0            MAC FA:16:3E:FD:85:F7 /* Allow traffic from defined IP/MAC pairs. */
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* Drop traffic without an IP/MAC allow rule. */
+```
+
+The flow table rules for anti-arp and anti-mac address are also updated.
+
+```
+# ovs-ofctl dump-flows br-int
+...
+ cookie=0xa6623d55bf2e8cea, duration=13.756s, table=24, n_packets=0, n_bytes=0, idle_age=13, priority=2,icmp6,in_port=28,icmp_type=136,nd_target=fe80::f816:3eff:fefd:85f8 actions=NORMAL
+ cookie=0xa6623d55bf2e8cea, duration=13.750s, table=24, n_packets=0, n_bytes=0, idle_age=13, priority=2,icmp6,in_port=28,icmp_type=136,nd_target=fe80::f816:3eff:fefd:85f7 actions=NORMAL
+ cookie=0xa6623d55bf2e8cea, duration=13.740s, table=24, n_packets=0, n_bytes=0, idle_age=13, priority=2,arp,in_port=28,arp_spa=200.200.200.110 actions=resubmit(,25)
+...
+ cookie=0xa6623d55bf2e8cea, duration=13.779s, table=25, n_packets=0, n_bytes=0, idle_age=13, priority=2,in_port=28,dl_src=fa:16:3e:fd:85:f8 actions=NORMAL
+ cookie=0xa6623d55bf2e8cea, duration=13.774s, table=25, n_packets=0, n_bytes=0, idle_age=13, priority=2,in_port=28,dl_src=fa:16:3e:fd:85:f7 actions=NORMAL
+```
