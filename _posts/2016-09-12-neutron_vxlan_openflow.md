@@ -35,8 +35,10 @@ NXST_FLOW reply (xid=0x4):
  cookie=0x899a587eff12b66a, duration=179004.761s, table=22, n_packets=5, n_bytes=450, idle_age=65534, hard_age=65534, priority=0 actions=drop
 ``` 
 
+```
 Life is not easy, Let's go through these flow one by one.
 Table0 |--from internal---> Table2 |--unicast  --> Table20
        |                           |--broadcast--> Table22
        |
        |--from outside ---> Table4 --tun_id to local_vlan--> Table10 (Mac Learning to Table20)
+```
