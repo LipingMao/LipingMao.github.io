@@ -45,6 +45,7 @@ Table0 |--from internal---> Table2 |--unicast  --> Table20
 ```
 
 Table0: 
+
 when the traffic comes from br-int, they resubmit the traffic to Table2.
 when the traffic comes from vxlan, they resubmit the traffic to Table4.
 In other case, they drop the packet.
@@ -61,6 +62,7 @@ In other case, they drop the packet.
 ```
 
 Table2:
+
 If packet is unicast, send to Table20, if packet is broadcast, send to Table22:
 
 ```
@@ -69,6 +71,7 @@ If packet is unicast, send to Table20, if packet is broadcast, send to Table22:
 ```
 
 Table4:
+
 Modify the tun_id to local vlan id, then send to Table10, if tun_id not exist, drop the packet.
 
 ```
@@ -78,6 +81,7 @@ Modify the tun_id to local vlan id, then send to Table10, if tun_id not exist, d
 ```
 
 Table10:
+
 Learn the TUN_ID, vxlan of_port, tun_id to create flow in Table20.
 
 ```
@@ -85,6 +89,7 @@ Learn the TUN_ID, vxlan of_port, tun_id to create flow in Table20.
 ```
 
 Table20:
+
 The learned flow will exist 300 sec, if there is learned flow, send to Table22.
 
 ```
