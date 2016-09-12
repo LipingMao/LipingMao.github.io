@@ -49,16 +49,21 @@ After the packet send out from the VM, it will go into br-int. and go through op
 ### Rules in table 0(LOCAL_SWITCHING)
 
 Openflow will lookup flow table from high priority to low priority. 
+
 priority 10:
     if the packet is from VM and ARP(ICMP4) or ICMP6 type 136(IPV6), then go to table 24(ARP_SPOOF_TABLE)
+
 priority 9:
     if the packet is from VM, then go to table 25(MAC_SPOOF_TABLE)
+
 priority 2:
     if the packet is from other Br(br-ex/br-eth0...), then drop it
+
 priority 0:
      Normal action.
 
 here is the flows:
+
 ```
  cookie=0xa6623d55bf2e8cea, duration=151319.882s, table=0, n_packets=0, n_bytes=0, idle_age=65534, hard_age=65534, priority=10,icmp6,in_port=28,icmp_type=136 actions=resubmit(,24)
  cookie=0xa6623d55bf2e8cea, duration=151319.872s, table=0, n_packets=6, n_bytes=252, idle_age=23109, hard_age=65534, priority=10,arp,in_port=28 actions=resubmit(,24)
