@@ -10,9 +10,10 @@ title: Kuryr libnetwork -- ipvlan data path
 
 I use OSP9(Mitaka) as my openstack base environment. Here is my test Environment:
 
-![Environment](https://github.com/LipingMao/LipingMao.github.io/blob/master/_posts/picture/2016_09_18_1.png)
+![Test Environment](/_posts/picture/2016_09_18_1.png)
 
 Notes:
+
 - I use macvlan (ipvlan should be similar) in this test environment.
 - I use network namespace to simulate docker container.
 
