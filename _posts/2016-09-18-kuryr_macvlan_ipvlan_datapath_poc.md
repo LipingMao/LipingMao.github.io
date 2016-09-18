@@ -4,7 +4,7 @@ title: Kuryr libnetwork -- ipvlan data path
 
 ## Backgroup
 
-> Kuryr want to use vlan-aware-vms feature in VM-Nested Case. Last week there is a new proposal base on use IPVlan and allowed address pairs,for more detail, please see [Mail list](https://marc.ttias.be/openstack-dev/2016-09/msg00806.php) . This blog want to do create an Environment manually to see how this proposal works.
+> Kuryr want to use vlan-aware-vms feature in VM-Nested Case. Last week there is a new proposal base on use IPVlan and allowed address pairs,for more detail, please see [Mail list](https://marc.ttias.be/openstack-dev/2016-09/msg00806.php) . This blog want to manually create an Environment to see how this proposal works.
 
 ## Environment
 
