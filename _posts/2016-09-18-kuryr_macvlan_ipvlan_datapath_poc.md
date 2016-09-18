@@ -161,9 +161,3 @@ PING g.cn (74.125.68.160) 56(84) bytes of data.
 64 bytes from sc-in-f160.1e100.net (74.125.68.160): icmp_seq=1 ttl=33 time=88.8 ms
 64 bytes from sc-in-f160.1e100.net (74.125.68.160): icmp_seq=2 ttl=33 time=90.0 ms
 ```
-
-## Summary
-
-- MACVlan and IPVlan is good performance compare with other ways in docker.
-- Less feature dependency, technically, it only depend on allowed-address-pair feaute which was merged in very early openstack version.
-- Security Group only can do in VM level not container level as container.
