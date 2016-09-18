@@ -13,8 +13,8 @@ I use OSP9(Mitaka) as my openstack base environment. Here is my test Environment
 ![Environment](picture/2016_09_18_1.png)
 
 Notes:
-* I use macvlan (ipvlan should be similar) in this test environment.
-* I use network namespace to simulate docker container.
+- I use macvlan (ipvlan should be similar) in this test environment.
+- I use network namespace to simulate docker container.
 
 
 ## Setup Steps
