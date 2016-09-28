@@ -4,7 +4,7 @@ title: About
 
 Liping Mao
 
-Glad someone can open this page, I did not leave any place to let people give their comments or message as I do not like others comment on me, what a XXXX guy :-)
+Glad someone can open this page, I did not leave any place to let people give their comments or message as I do not like others comment on me :-)
 This blog is only for me to record something I learn. I'm a technical guy who is interested in Network, IaaS, Container.
 
 For last 3 years, I worked around openstack from Folsom to Mitaka, I was ATC in neutron, recently I focus on Kuryr.
