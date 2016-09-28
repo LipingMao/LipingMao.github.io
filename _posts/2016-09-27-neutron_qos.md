@@ -13,6 +13,7 @@ Pleasae refer [Network Guide](http://docs.openstack.org/mitaka/networking-guide/
 ## How to use qos feature
 
 You need to create qos policy and rule first:
+
 ```
 [root@ci91hf3ctr001 ~]# neutron qos-policy-create limao_test
 Created a new policy:
@@ -38,6 +39,7 @@ Created a new bandwidth_limit_rule:
 ```
 
 You can either bind the qos policy to network level or bind it to port level:
+
 ```
 [root@ci91hf3ctr001 ~]# neutron net-update --qos-policy limao_test $NET_UUID
 
@@ -46,6 +48,7 @@ You can either bind the qos policy to network level or bind it to port level:
 ```
 
 if you are using ovs, it will set up to ingress_policing_burst and ingress_policing_rate:
+
 ```
 [root@ci91hf3cmp002 ~]# ovs-vsctl list interface
 _uuid               : a0d005b6-7c94-4e8f-af6b-531c5fc022dc
