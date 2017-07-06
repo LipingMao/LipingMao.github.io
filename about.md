@@ -4,11 +4,9 @@ title: About
 
 Liping Mao
 
-Glad someone can open this page, I did not leave any place to let people give their comments or message as I do not like others comment on me :-)
-This blog is only for me to record something I learn. I'm a technical guy who is interested in Network, IaaS, Container.
+Glad to know someone can open this page. This blog is only for me to record something I learn. I'm a technical guy who is interested in Network, IaaS, Container.
 
-For last 3 years, I worked around openstack from Folsom to Mitaka, I was ATC in neutron, recently I focus on Kuryr.
-If you are interested in me, just send me mail. I will reply for sure if you are not robot or ADs :)
+For last 5 years, I worked around openstack from Folsom to Newton, I was ATC in neutron(sadly, not now). Recently, I work around Kuryr project as core developer.
+If you are interested in me, just send me mail.
 
 E-Mail: limao@cisco.com
-IRC: limao
