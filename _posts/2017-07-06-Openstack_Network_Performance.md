@@ -49,7 +49,8 @@ TODO: add two blog link, and update the words here.
 
 ## Physical Layer Performance
 
-> TODO: this part will introduce the physical layer performance test/tun/monitor
+```
+ TODO: this part will introduce the physical layer performance test/tun/monitor
 physical lay connect arch
 talk about : RX Queue len/number , TX queue len/number, RSS, offload.
 Impact and test result
@@ -58,11 +59,13 @@ Tips to monitor: physical interface drop packet number
 per cpu usage, especially care about iq
 /proc/net/soft...
 /proc/interrupt to check if RSS works well
+```
 
 
 ## Virtual Switch Layer
 
-> TODO: this part will introduce the virtual switch layer, ovs, tap
+```
+TODO: this part will introduce the virtual switch layer, ovs, tap
 talk about: vxlan and vlan of ovs Performance
 tap device length
 multi-queue
@@ -72,24 +75,32 @@ tips to monitor:
 tap device drop packet and so on
 conntrack count and max
 net buget , cpu usage
+```
 
 
 ## Inside VM
 
-> TODO: virtio driver? udp/tcp params need to update
+```
+TODO: virtio driver? udp/tcp params need to update
 udp packet length
 /proc/net/snmp in kernel layer
 cpu iq / cpu steal
+```
 
 
 ## Network Node
 
-> TODO: vrouter performance and limit
+```
+TODO: vrouter performance and limit
 vxlan / vlan performance inside vrouter
 performance impact of netfilter
 vlanXXX monitor for vxlan endpoint
 limit vrouter number on one network node in L3 schedule and Metadata
+```
+
 
 ## Key take aways TIPS
 
-> TODO: summary key take aways
+```
+TODO: summary key take aways
+```
