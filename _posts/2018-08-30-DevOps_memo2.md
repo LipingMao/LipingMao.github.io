@@ -1,5 +1,5 @@
 ---
-title: DevOps Memo(2) -- DHCP client request rfc3442-classless-static-routes option
+title: DHCP client request rfc3442-classless-static-routes option
 ---
 
 ## Background

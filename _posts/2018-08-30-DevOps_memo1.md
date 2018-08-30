@@ -1,5 +1,5 @@
 ---
-title: DevOps Memo(1) -- Ansible with ladvdc issue
+title: Ansible with ladvdc issue
 ---
 
 ## Background
