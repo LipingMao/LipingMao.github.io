@@ -57,6 +57,6 @@ src/cli.c
 
 ## What is the solution?
 
-  1）修改ladvdc的code，增加width长度。
+  1）修改ladvdc的code，增加width长度。<br>
   2）使用ladvdc -b按照K-V的方式输出，正常一行不会超过80字符。
 
