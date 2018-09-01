@@ -1,5 +1,5 @@
 ---
-title: Ironic Memo (1) -- Ironic-Conductor HA
+title: OpenStack -- Ironic-Conductor HA
 ---
 
 ## Background

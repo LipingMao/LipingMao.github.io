@@ -1,5 +1,5 @@
 ---
-title: Openstack Lib(1) -- oslo.config
+title: OpenStack -- oslo.config
 ---
 ## Backgroup
 > Reduce duplicated code in different openstack project. This lib is common action for config file.

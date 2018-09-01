@@ -1,5 +1,5 @@
 ---
-title: Kuryr libnetwork(1) -- ipvlan data path
+title: OpenStack -- ipvlan data path
 ---
 
 ## Backgroup

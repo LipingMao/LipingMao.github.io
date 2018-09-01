@@ -1,5 +1,5 @@
 ---
-title: Neutron Memo(3) -- vxlan tenant network
+title: OpenStack -- vxlan tenant network
 ---
 ## Backgroup
 

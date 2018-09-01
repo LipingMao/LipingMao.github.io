@@ -1,5 +1,5 @@
 ---
-title: Kuryr libnetwork(2) -- basic api
+title: Kuryr -- basic api
 ---
 
 ## Libnetwork Remote Driver in Kuryr
