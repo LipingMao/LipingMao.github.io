@@ -4,9 +4,12 @@ title: About
 
 Liping Mao
 
-Glad to know someone can open this page. This blog is only for me to record something I learn. I'm a technical guy who is interested in Network, IaaS, Container.
+Cloud Fans, OpenStack for 6 years.
+AWS Fans, (And with All AWS certifications)
+Data Center build and design.(CCIE DC / CCIE RS)
+Open Source Upsteam Contributor(Neutron/Kuryr/Kolla) and  Maintainer(kuryr).
+Kernel Fans, Linux Network Stack for 3 years.
 
-For last 5 years, I worked around openstack from Folsom to Newton, I was ATC in neutron(sadly, not now). Recently, I work around Kuryr project as core developer.
 If you are interested in me, just send me mail.
 
 E-Mail: limao@cisco.com
