@@ -38,9 +38,9 @@ for i in {1..10}; do dd if=/dev/zero of=./test bs=64K count=10240 oflag=direct; 
 ```
 测试结果如下：
 ```
-                 	4K	    16K	    64K
-Prod Phy	        26.97	  54.58	  94.24
-Prod VM(threads)	18.46	  32.47	  75.93
-Prod VM(native)	  22.46	  49.45	  81.57
+                        4K        16K      64K
+Prod Phy                26.97     54.58    94.24
+Prod VM(threads)        18.46     32.47    75.93
+Prod VM(native)         22.46     49.45    81.57
 ```
 在我们目前的使用场景中，使用native会比threads更接近物理机器性能。
