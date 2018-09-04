@@ -4,7 +4,7 @@ title: OpenStack  -- AIO mode for disk device
 
 ## Background
 
-> 在调优OpenStack Disk IO时，AIO(asynchronous IO)提供了两个参数，"native"和"threads"。 本文测试了两者参数对性能影响。
+> 在调优OpenStack Disk IO时，AIO(asynchronous IO)提供了两个参数，"native"和"threads"([refer](https://specs.openstack.org/openstack/nova-specs/specs/mitaka/implemented/libvirt-aio-mode.html))。 本文测试了两者参数对性能影响。
 
 
 ## How to set up
