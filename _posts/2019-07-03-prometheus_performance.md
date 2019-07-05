@@ -1,5 +1,5 @@
 ---
-title: Prometheus Performance
+title: Prometheus -- Performance
 ---
 
 ## Background
