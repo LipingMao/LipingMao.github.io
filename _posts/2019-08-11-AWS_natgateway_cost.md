@@ -17,10 +17,8 @@ Here is step by step install guide:
 # Enable ip_forward
 vim /etc/sysctl.conf
 net.ipv4.ip_forward = 1
-
 # Enable sysctl
 sysctl -p
-
 # Add NAT rule:
 iptables -t nat -A POSTROUTING  -s 10.0.4.0/24 -j MASQUERADE
 service iptables save
