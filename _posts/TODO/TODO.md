@@ -2,4 +2,9 @@
 
 2. HTTP Protocol deep dive.
 
-3. TBD
+3. AWS Re:Invent
+   breakdown
+
+4. 极客时间: Breakdown
+
+5. AcloudGuru
