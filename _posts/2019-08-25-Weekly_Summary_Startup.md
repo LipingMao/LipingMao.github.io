@@ -24,7 +24,7 @@ Meanwhile , here is couple of things I have never think before, these things wil
   - How to get angel invention and (Still unknown for me, but this is actually not that important for me now, know more people and make yourself more famous may help you in this)
   - How to register a company?  (Unknown for me)
   - We need to figure out a Work Place for people. There is a lot of "Shared Spaces", those place are very good for a startup, you just need to pay about 4000-7000 RMB per month, you can get about 10 persons room in SuZhou.
-  - Personal PC for each of person. We got 13 inch (i5 + 16G RAM + 256G Disk) Mac Pro. I was using 15 inch in Cisco, personally I love this 13 Inch PC, it is much light than 15 inch PC, and it is OK for me to do daily job, I like it :smile:
+  - Personal PC for each of person. We got 13 inch (i5 + 16G RAM + 256G Disk) Mac Pro. I was using 15 inch in Cisco, personally I love this 13 Inch PC, it is much light than 15 inch PC, and it is OK for me to do daily job, I like it. 🤣
   - We have nothing, so we need to build our basic development environment from 0. Harry , Ethan and me build the basic development support system on the cloud, here is what we did :
   - We get AWS environment in China. (AWS in China only open for Company , it is not open for personal, so you have to registered a company, then you could start there.)
   - AWS Price stuff is a place which I have never thinked about. This is critical thing for a start up. Well, we never think about money in Cisco, we just use the best one~ 
