@@ -1,5 +1,5 @@
-title: Liping Mao's Blog
-description: "Liping Mao's Blog"
+title: limao's Blog
+description: "Limao's Blog"
 author:
   name: "limao"
   email: "limao455@163.com"
@@ -28,5 +28,5 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "Liping Mao"
+owner : "limao"
 year : "2019"
