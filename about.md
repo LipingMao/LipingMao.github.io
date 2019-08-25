@@ -3,4 +3,4 @@ layout: page
 title: About
 ---
 
-Something about me.
+Liping Mao (limao455@163.com)
