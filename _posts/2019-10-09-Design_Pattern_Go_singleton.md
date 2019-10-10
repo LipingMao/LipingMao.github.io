@@ -3,7 +3,7 @@ title: Design Pattern -- Creational Singleton
 ---
 # Singleton
 
-Single instance of object which is no duplicates. Sample: unique counter, 
+Single instance of object which is no duplicates. Sample: unique counter.
 
 
 
