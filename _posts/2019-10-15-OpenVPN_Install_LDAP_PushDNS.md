@@ -37,12 +37,12 @@ Update LDAP Configuration in /openvpn/auth/ldap.conf:
 
 ```
 <LDAP>
-      ``URL             ldap:``//10.0.4.89:389
-      ``BindDN          ``"cn=openvpn.gen,ou=Generics,ou=Pano Users,dc=panorama,dc=com"
-      ``Password        ``"$PASSWORD"
-      ``Timeout         ``15
-      ``TLSEnable       no
-      ``FollowReferrals no
+      URL             ldap://10.0.4.89:389
+      BindDN          "cn=openvpn.gen,ou=Generics,ou=Pano Users,dc=panorama,dc=com"
+      Password        "$PASSWORD"
+      Timeout         15
+      TLSEnable       no
+      FollowReferrals no
 </LDAP>
 
 <Authorization>
@@ -76,7 +76,7 @@ Why we want to push DNS server in OpenVPN?Because we want to have our internal D
 In this sample, we configure our internal DNS server in first (A.B.C.D), Tencent DNS as Second/Third  (183.60.83.19 , 183.60.82.98)
 
 ```
-push ``"dhcp-option DNS A.B.C.D"
-push ``"dhcp-option DNS 183.60.83.19"
-push ``"dhcp-option DNS 183.60.82.98"
+push "dhcp-option DNS A.B.C.D"
+push "dhcp-option DNS 183.60.83.19"
+push "dhcp-option DNS 183.60.82.98"
 ```
