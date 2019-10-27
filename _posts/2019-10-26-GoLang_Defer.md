@@ -67,7 +67,11 @@ func Func1() {
 
 
 ## Refer
+
 [1] https://deepzz.com/post/how-to-use-defer-in-golang.html
+
 [2] https://xiaozhou.net/something-about-defer-2014-05-25.html
+
 [3] https://draveness.me/golang/keyword/golang-defer.html
+
 [4] https://yourbasic.org/golang/measure-execution-time/
