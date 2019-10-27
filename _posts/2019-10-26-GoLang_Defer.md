@@ -1,5 +1,6 @@
 ---
 title: Golang - defer and measure time
+tags: Golang
 ---
 
 > 利用defer实现计时功能，以及defer的基础知识。
