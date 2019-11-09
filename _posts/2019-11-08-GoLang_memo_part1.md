@@ -9,20 +9,20 @@ title: Golang -- 拾遗 Part1
 * Const的在空时，自动使用上一个值:
 
   ```go
-  const （
-  a = “abc”
+  const (
+  a = "abc"
   b
-  ）
+  )
   ```
 
 * Const使用iota实现枚举，每个iota自增：
 
    ```go
-  const （
+  const (
   x = iota *10   // 0
-  y	             // 10
+  y	         // 10
   z              // 20
-  ）
+  )
    ```
 
 * rune 是int32别名，byte是uint8别名，可以直接赋值。
