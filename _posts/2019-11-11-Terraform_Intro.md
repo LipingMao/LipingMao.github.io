@@ -28,18 +28,13 @@ title: Terraform -- Intro
 
 ## 腾讯云上Terraform
 
+```
 不重复造轮子，官方推出的系列简单操作足以：
-
 Packer ： https://cloud.tencent.com/developer/article/1474736
-
 概念： https://cloud.tencent.com/developer/article/1473838
-
 腾讯云上使用TF：
-
 https://cloud.tencent.com/developer/article/1473713
-
 https://cloud.tencent.com/developer/article/1478955
-
 https://cloud.tencent.com/developer/article/1482560
-
 https://cloud.tencent.com/developer/article/1487537
+```
