@@ -12,7 +12,7 @@ IPVS: Protocol not available
 
 
 
-这是因为Keepalived1.3+ 需要宿主机器上没有加载ip_vs， 简单workaround可以在宿主机器上modprobe ip_vs:
+这是因为Keepalived1.3+ 需要在宿主机器上加载ip_vs， 简单workaround可以在宿主机器上modprobe ip_vs:
 
 ```
 # lsmod | grep ip_
