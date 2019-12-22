@@ -4,7 +4,7 @@ title: DevOps -- HttpTrace
 
 
 
-> 既然ICMP Ping暂时在函数计算中使用，想在函数中尝试一下Http相关的测试，使用函数计算达到httpstat类似的效果。
+> 既然ICMP Ping不能在函数计算中使用，想在函数中尝试一下Http相关的测试，使用函数计算达到httpstat类似的效果。
 
 
 
