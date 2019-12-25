@@ -3,21 +3,33 @@ title: Cloud -- Object Storage Program Model
 ---
 
 
+
+### Overall
+
+使用第三方Storage Provider（例如七牛云，腾讯云，阿里云，AWS等）应该遵循以下编程模型：
+
+1） 使用方永远不要将密钥存放在Client端中。
+
+2）当使用方需要给客户端上传权限时，需要实现业务服务器（App Server）对Client端鉴权，App Server端存放Storage Provider的密钥信息。
+
+3）使用密钥信息，生成上传/下载Token信息，Token应该有时效性，例如1小时过期。
+
+4）将Token返回给Client，Client使用Token与Storage Provider通信。
+
+
+
+
+
+### Upload Sample：
+
+
 ```mermaid
-graph LR
-
-X---A
-Y---B
-Z---C
-
-  subgraph 元素关系
-  A(切空间基矢) -->|张成| B(切空间)
-    B ---|指数映射| C(单位元邻域)
-    C -->|生成| D(李群)
-    end
-    
-  subgraph 算符关系
-  X[结构常数] --- Y["李代数[ , ]"]
-    Y ---|指数映射| Z[群乘]
-    end
+sequenceDiagram
+　　　participant Client
+　　　participant APP Server
+　　　participant Storage Provider
+　　　Client ->> APP Server: Auth And Request Upload Token
+　　　APP Server -->> Client: Return Upload Token
+　　　Client ->> Storage Provider: Upload File
 ```
+
