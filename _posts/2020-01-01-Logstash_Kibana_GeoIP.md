@@ -58,7 +58,7 @@ if [module] == "gslb" {
 
 在logstash中有这些信息后，Kibana上面可以配置Coordinate Map，可以看到client IP的地域热点图，效果如下：
 
-![image-20200107143527362](_posts/picture/image-20200107143527362.png)
+![image-20200107143527362](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200107143527362.png)
 
 
 
