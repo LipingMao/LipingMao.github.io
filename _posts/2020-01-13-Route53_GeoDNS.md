@@ -10,7 +10,7 @@ Route53可以配置基于地域的DNS解析。比如，我们希望在海外的�
 
 比如设置默认的地理位置返回2.3.4.5:
 
-![image-20200119183142077](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/image-20200119183142077.png)
+![image-20200119183142077](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200119183142077.png)
 
 
 
@@ -18,4 +18,4 @@ Route53可以配置基于地域的DNS解析。比如，我们希望在海外的�
 
 给国内的返回为1.2.3.4:
 
-![image-20200119183119985](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/image-20200119183119985.png)
+![image-20200119183119985](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200119183119985.png)
