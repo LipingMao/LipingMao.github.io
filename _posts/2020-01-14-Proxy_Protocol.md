@@ -10,7 +10,7 @@ title: DevOps -- Proxy Protocol
 
 ### 什么是Proxy Protocol
 
-目前Proxy-protocol支持两个版本，v1和v2。v1为方便人可读。v2加入了
+目前proxy protocol支持两个版本，v1和v2。v1为human-readable格式。v2扩展支持了Binary header格式，以下为v2的头部信息：
 ```
 12字节的固定signature。 \x0D\x0A\x0D\x0A\x00\x0D\x0A\x51\x55\x49\x54\x0A
 4bits 协议版本号: \x2 : v2
@@ -19,8 +19,12 @@ title: DevOps -- Proxy Protocol
 4bits transport protocol \x0 : UNSPEC \x1 : STREAM \x2 : DGRAM
 2字节地址长度字段(网络字节序)，指接下来剩余的报文长度
 ```
+注：
+可以看到：协议支持STREAM（TCP），DFRAM（UDP）。
 
-可使用以下方式描述：
+
+
+头部可使用以下方式描述：
 ```
     struct proxy_hdr_v2 {
         uint8_t sig[12];  /* hex 0D 0A 0D 0A 00 0D 0A 51 55 49 54 0A */
