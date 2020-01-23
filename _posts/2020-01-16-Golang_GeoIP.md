@@ -38,7 +38,7 @@ func Address2(db *geoip2.Reader) {
 
 可以获取City级别的信息：
 ```
-Country: &{{0 map[]} {AS 6255147 map[de:Asien en:Asia es:Asia fr:Asie ja:アジア pt-BR:Ásia ru:Азия zh-CN:亚洲]} {1814991 false CN map[de:China en:China es:China fr:Chine ja:中国 pt-BR:China ru:Китай zh-CN:中国]} {50 39.9289 116.3883 0 Asia/Shanghai} {} {1814991 false CN map[de:China en:China es:China fr:Chine ja:中国 pt-BR:China ru:Китай zh-CN:中国]} {0 false  map[] } [{2038349 BJ map[en:Beijing fr:Municipalité de Pékin zh-CN:北京市]}] {false false}}, err: <nil> 
+Country:  {AS 6255147 map[de:Asien en:Asia es:Asia fr:Asie ja:アジア pt-BR:Ásia ru:Азия zh-CN:亚洲]} {1814991 false CN map[de:China en:China es:China fr:Chine ja:中国 pt-BR:China ru:Китай zh-CN:中国]} {50 39.9289 116.3883 0 Asia/Shanghai} {} {1814991 false CN map[de:China en:China es:China fr:Chine ja:中国 pt-BR:China ru:Китай zh-CN:中国]} {0 false  map[] } [{2038349 BJ map[en:Beijing fr:Municipalité de Pékin zh-CN:北京市]}] {false false}}, err: <nil> 
 
 ```
 
