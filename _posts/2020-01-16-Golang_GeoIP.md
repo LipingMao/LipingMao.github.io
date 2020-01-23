@@ -25,7 +25,7 @@ func Address(db *maxminddb.Reader) {
 		} `maxminddb:"country"`
 	} // Or any appropriate struct
 
-	_ = db.Lookup(ip, &record)
+	db.Lookup(ip, &record)
 }
 
 func Address2(db *geoip2.Reader) {
