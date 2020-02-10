@@ -1,8 +1,8 @@
 ---
-title: DevOps -- Load Aveage
+title: DevOps -- Load Average
 ---
 
-Good to Read about why we should not say "CPU Load Aveage" but "System Load Aveage":
+Good to Read about why we should not say "CPU Load Average" but "System Load Average":
 http://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html
 
 
