@@ -1,5 +1,5 @@
 ---
-title: DevOps -- Map protected by mutex caused panic: concurrent map writes
+title: DevOps -- Map protected by mutex caused panic
 ---
 
 在对map进行加锁时，碰到了和以下一样的问题：
