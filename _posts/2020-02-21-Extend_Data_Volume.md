@@ -5,8 +5,8 @@ title: DevOps -- Extend Data Volume on Tencent Cloud
 > 需要在运行时给虚拟机增加数据盘容量，希望尽可能减少对虚拟机的影响。
 
 按以下步骤扩容：
-1） 修改Terraform的配置，将磁盘扩展到合适容量，并运行terraform apply。
-2） 在OS内部进行扩容：
+*  修改Terraform的配置，将磁盘扩展到合适容量，并运行terraform apply。
+*  在OS内部进行扩容：
 a） 查看文件系统类型：
 ```
 [root@hk80bastion001 ~]# parted -l
@@ -45,7 +45,7 @@ c）根据不同文件系统，进行扩容：
 如果是ext4， resize2fs /dev/vdb1
 如果是xfs， xfs_growfs /dev/vdb1
 
-3） 查看并确认扩容成功：
+*  查看并确认扩容成功：
 ```
 [root@hk80bastion001 ~]# df -h
 Filesystem      Size  Used Avail Use% Mounted on
