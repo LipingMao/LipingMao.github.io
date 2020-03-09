@@ -8,6 +8,8 @@ title: DevOps -- Extend Data Volume on Tencent Cloud
 
 按以下步骤扩容：
 
+
+
 1) 修改Terraform的配置，将磁盘扩展到合适容量，并运行terraform apply。
 
 2) 在OS内部进行扩容：
@@ -53,7 +55,8 @@ growpart /dev/vdb 1
 
 
 
-*  查看并确认扩容成功：
+3) 查看并确认扩容成功：
+
 ```
 [root@hk80bastion001 ~]# df -h
 Filesystem      Size  Used Avail Use% Mounted on
