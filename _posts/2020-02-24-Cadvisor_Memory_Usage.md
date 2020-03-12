@@ -18,6 +18,7 @@ Prometheus目前收集的是以下数据：
 container_memory_usage_bytes
 container_memory_rss
 container_memory_cache
+container_memory_swap
 ```
 
-目前，我们使用container_memory_usage_bytes用于表示容器内存使用情况，但是此处，并不是在docker stats中的MEM USAGE。container_memory_usage_bytes为container_memory_rss + container_memory_cache的值。而在docker stats中看到的是container_memory_rss的值。
+目前，我们使用container_memory_usage_bytes用于表示容器内存使用情况，但是此处，并不是在docker stats中的MEM USAGE。container_memory_usage_bytes为container_memory_rss + container_memory_cache + container_memory_swap的值。而在docker stats中看到的是container_memory_rss的值。
