@@ -1,5 +1,5 @@
 ---
-title: DevOps -- AIA V.S. AWS
+title: DevOps -- AIA V.S. Webex BB
 ---
 
 Webex在全球部署自己的数据中心，拥有自己的Backbone。如果客户站点Site建在北美，例如cisco.webex.com。 则在中国加入这个站点的人员，大致会走国内到日本/新加坡两条专线，然后走Webex自己的backbone到SJC。今年日本/新加坡数据中心和国内建立了两条专线连接，Webex在这两条专线上，将所有Webex的公网地址，都宣告给了这两条专线（日本是电信，新加坡是联通）。这样当客户从国内访问SJC站点时，就会先到日本/新加坡，然后再到SJC。
