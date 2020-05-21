@@ -83,3 +83,15 @@ traceroute to 66.114.168.212 (66.114.168.212), 30 hops max, 60 byte packets
     global-nebulaac.webex.com (66.114.168.212)  159.14 ms  AS13445  United States California San Jose webex.com
     global-nebulaac.webex.com (66.114.168.212)  159.20 ms  AS13445  United States California San Jose webex.com
 ```
+
+
+
+
+
+对比各数据中心访问AIA 和 访问Webex 北美站点的速度（[cisco.webex.com](http://cisco.webex.com/))
+
+![image-20200521090750430](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200521090750430.png)
+
+
+
+从此处可以看到，单单就时延/丢包来说，硅谷AIA的效果，比Webex SJC的效果还要好。这是因为腾讯在国内有直接的入口，Webex必须要从日本/新加坡才能进入。而Webex在日本/新加坡到SJC的专线本身时延大概有100ms，因此北美的国内反向加速AIA效果应该不错。
