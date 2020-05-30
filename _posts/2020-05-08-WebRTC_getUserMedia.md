@@ -57,5 +57,5 @@ const mediaStreamContrains = {
 
 主要可以控制的参数如下：
 
-![image-20200530204624459](https://landing.google.com/sre/books/image-20200530204624459.png)
+![image-20200530204624459](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200530204624459.png)
 
