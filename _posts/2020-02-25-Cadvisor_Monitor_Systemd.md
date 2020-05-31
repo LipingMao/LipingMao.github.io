@@ -10,7 +10,7 @@ title: DevOps -- Cadvisor Monitor Systemd
 
  可以看到每个id为system.slice/XXX.service可以获取到CPU/Memory等信息：
 
-![image-20200313092713581](/Users/limao/Library/Application Support/typora-user-images/image-20200313092713581.png)
+![image-20200313092713581](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture//image-20200313092713581.png)
 
 
 

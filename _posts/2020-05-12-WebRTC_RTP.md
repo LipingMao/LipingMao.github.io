@@ -10,8 +10,8 @@ title: WebRTC -- RTP
 
 RTP头部结构如下：
 
-![image-20200531223921955](/Users/limao/Library/Application Support/typora-user-images/image-20200531223921955.png)
+![image-20200531223921955](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200531223921955.png)
 
 含义如下：
 
-![image-20200531224030061](/Users/limao/Library/Application Support/typora-user-images/image-20200531224030061.png)
+![image-20200531224030061](https://raw.githubusercontent.com/LipingMao/LipingMao.github.io/master/_posts/picture/image-20200531224030061.png)
