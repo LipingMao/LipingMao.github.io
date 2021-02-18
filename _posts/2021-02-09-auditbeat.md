@@ -15,6 +15,7 @@ System
 * Auditd可以接收Linux Audit Framework的events。
 * file_integrity可以检测文件是否发生变化
 * System可以检测一些系统信息,具体如下: 
+
 ```
     - host    # General host information, e.g. uptime, IPs
     - login   # User logins, logouts, and system boots.
